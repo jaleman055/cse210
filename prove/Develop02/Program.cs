@@ -18,10 +18,6 @@ class Journal
         Entries.Add(entry);
     }
 
-    public void RemoveEntry(Entry entry)
-    {
-        Entries.Remove(entry);
-    }
 
     public void Save(string filename)
     {
