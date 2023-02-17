@@ -162,7 +162,7 @@ namespace CalorieTracker
 
         public void PrintFoodData()
         {
-            string[] foodData = File.ReadAllLines("food_data.txt"); 
+            string[] foodData = File.ReadAllLines("food_data.txt");
             for (int i = 0; i < foodData.Length; i++)
             {
                 if (foodData[i] == FoodName)
@@ -200,9 +200,9 @@ namespace CalorieTracker
             {
                 Calories += float.Parse(calories[i]);
             }
-            
+
             CaloriesLeft = Calories;
-            string[] caloriesLeft = { CaloriesLeft.ToString() };
+            string[] caloriesLeft = { CaloriesLeft.ToString("0.0") };
             File.WriteAllLines("calories_left.txt", caloriesLeft);
             Console.WriteLine("Calories data saved.");
         }
@@ -218,11 +218,11 @@ namespace CalorieTracker
             string[] caloriesLeft = File.ReadAllLines("calories_left.txt");
             string[] userData = File.ReadAllLines("user_data.txt");
             float bmr = float.Parse(userData[4]);
-            Console.WriteLine("BMR: " + bmr);
+            Console.WriteLine("BMR: " + bmr.ToString("0.0"));
             Console.WriteLine("Calories consumed: " + caloriesLeft[0]);
             float caloriesLeftFloat = float.Parse(caloriesLeft[0]);
             caloriesRemaining = bmr - caloriesLeftFloat;
-            Console.WriteLine("Calories left: " + caloriesRemaining);            
+            Console.WriteLine("Calories left: " + caloriesRemaining.ToString("0.0"));
         }
     }
 }
